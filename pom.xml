@@ -13,7 +13,6 @@
 		
 		<sonar.dynamicAnalysis>true</sonar.dynamicAnalysis>
 		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-		<sonar.jacoco.reportPath>${project.build.directory}/jacoco.exec</sonar.jacoco.reportPath>
     </properties>
 	
 	<scm>
@@ -56,19 +55,21 @@
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.7.1.201405082137</version>
-				<configuration>
-					<propertyName>jacoco.agent.argLine</propertyName>
-					<skip>${skipITs}</skip>
-					<destFile>${project.build.directory}/jacoco.exec</destFile> <!-- agent -->
-					<dataFile>${project.build.directory}/jacoco.exec</dataFile> <!-- report -->
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-				</executions>
+				 <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
 			</plugin>
 		</plugins>
 	</build>
