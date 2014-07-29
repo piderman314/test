@@ -6,4 +6,8 @@ public class TestClass {
 		return 2 * a;
 	}
 	
+	public int tripel(int a) {
+		return 3 * a;
+	}
+	
 }
