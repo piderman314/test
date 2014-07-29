@@ -10,4 +10,8 @@ public class TestClassTest {
 		Assert.assertEquals(4, new TestClass().dubbel(2));
 	}
 	
+	@Test
+	public void test2() {
+		Assert.assertNotEquals(5, new TestClass().dubbel(2));
+	}
 }
