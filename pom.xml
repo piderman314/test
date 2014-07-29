@@ -19,4 +19,19 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	
+	<distributionManagement>
+		<repository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>nexus-releases</id>
+			<name>Nexus Release repository</name>
+			<url>http://localhost:8080/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<uniqueVersion>true</uniqueVersion>
+			<id>nexus-snapshots</id>
+			<name>Nexus Shapshots repository</name>
+			<url>http://localhost:8080/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 </project>
