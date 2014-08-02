@@ -1,17 +1,19 @@
 package mark.test1;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.MatcherAssert.assertThat;
 
+import org.testng.annotations.Test;
+
+@Test
 public class TestClassTest {
 	
-	@Test
 	public void test() {
-		Assert.assertEquals(4, new TestClass().dubbel(2));
+        assertThat(new TestClass().dubbel(2), is(4));
 	}
 	
-	@Test
 	public void test2() {
-		Assert.assertNotEquals(5, new TestClass().dubbel(2));
+		assertThat(new TestClass().dubbel(2), not(5));
 	}
 }

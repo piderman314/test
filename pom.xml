@@ -5,84 +5,24 @@
     <artifactId>test1</artifactId>
     <version>1.1-SNAPSHOT</version>
     <packaging>jar</packaging>
+    
+    <parent>
+        <groupId>piderman</groupId>
+        <artifactId>piderman-root</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+        
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-		<maven.compiler.debug>true</maven.compiler.debug>
+        <maven.compiler.debug>true</maven.compiler.debug>
     </properties>
 	
-	<scm>
-		<connection>scm:git:https://github.com/piderman314/test</connection>
-		<developerConnection>scm:git:https://github.com/piderman314/test</developerConnection>
-	  <tag>HEAD</tag>
-  </scm>
+    <scm>
+        <connection>${scm.url}/test</connection>
+        <developerConnection>${scm.url}/test</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
 	
-	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.11</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-          <groupId>org.codehaus.sonar-plugins.java</groupId>
-          <artifactId>sonar-jacoco-listeners</artifactId>
-          <version>2.3</version>
-          <scope>test</scope>
-        </dependency>
-	</dependencies>
-	
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.16</version>
-				<configuration>
-              <properties>
-                <property>
-                  <name>listener</name>
-                  <value>org.sonar.java.jacoco.JUnitListener</value>
-                </property>
-              </properties>
-            </configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.7.1.201405082137</version>
-				 <executions>
-                    <execution>
-                        <id>prepare-agent</id>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>report</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>report</goal>
-                        </goals>
-                    </execution>
-                </executions>
-			</plugin>
-		</plugins>
-	</build>
-	
-	<distributionManagement>
-		<repository>
-			<uniqueVersion>false</uniqueVersion>
-			<id>nexus-releases</id>
-			<name>Nexus Release repository</name>
-			<url>http://localhost:8080/nexus/content/repositories/releases/</url>
-		</repository>
-		<snapshotRepository>
-			<uniqueVersion>true</uniqueVersion>
-			<id>nexus-snapshots</id>
-			<name>Nexus Shapshots repository</name>
-			<url>http://localhost:8080/nexus/content/repositories/snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
 </project>
