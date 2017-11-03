@@ -24,5 +24,7 @@
         <developerConnection>${scm.url}/test</developerConnection>
         <tag>HEAD</tag>
     </scm>
+
+    <!-- test comment -->
 	
 </project>
